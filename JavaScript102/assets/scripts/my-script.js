@@ -66,6 +66,7 @@ const submitOrder = function (orderName, drinkName) {
   numberOfDrinks++;
 
   if (numberOfDrinks <= 4) {
+    fetchImage();
     document.querySelector('.order-details').innerHTML = orderName + " would a " + drinkName + "!"
   }
   else {
@@ -74,6 +75,19 @@ const submitOrder = function (orderName, drinkName) {
 
   updateOrderCount(numberOfDrinks);
 };
+
+function fetchImage() {
+  const url = 'https://source.unsplash.com/collection/2187331/300x200';
+
+  fetch(url)
+  .then((response) => {return response.blob(); })
+  .then((blob) => {
+    const imgURL = URL.createObjectURL(blob);
+    document.getElementById('cocktail-image').src= imgURL;
+  })
+  .catch(  (error) => {console.log(error); });
+};
+
 
 const updateOrderCount = (count) => {
   document.getElementById('drink-count').innerHTML = "Drinks Ordered: " + count;
