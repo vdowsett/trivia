@@ -31,6 +31,11 @@ const menu = {
       'id': 'focusedTheMostest',
       'label': 'Focused the Mostest'
     },
+    {
+      'id': 'mintyMethod',
+      'label': 'Minty Method',
+      'photoID': 'eUtbg2R9a9E'
+    }
   ],
   buildDrinkMenu: function () {
 
@@ -67,7 +72,7 @@ const submitOrder = function (orderName, drinkName) {
 
   if (numberOfDrinks <= 4) {
     fetchImage();
-    document.querySelector('.order-details').innerHTML = orderName + " would a " + drinkName + "!"
+    document.querySelector('.order-details').innerHTML = `${orderName} would like a ${drinkName}!`
   }
   else {
     alert('Drink order queue is full.');
@@ -90,7 +95,7 @@ function fetchImage() {
 
 
 const updateOrderCount = (count) => {
-  document.getElementById('drink-count').innerHTML = "Drinks Ordered: " + count;
+  document.getElementById('drink-count').innerHTML = `Drinks Ordered: ${count}`;
 };
 
 document.addEventListener("DOMContentLoaded", function (event) {
