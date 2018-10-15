@@ -28,7 +28,7 @@
           <li
             *ngFor="let answer of question.answers"
             (click)="onSelect(answer)">
-            {{answer.text}}
+            <span [innerHTML]=answer.text></span>
           </li>
         </ul>
       </div>
